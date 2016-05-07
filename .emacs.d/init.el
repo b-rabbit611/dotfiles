@@ -113,13 +113,9 @@
 (unless (server-running-p)
   (server-start))
 
+;; 入力されるキーシーケンスを置き換える
+;; ?\C-hはDELキーのシーケンス
+(keyboard-translate ?\C-h ?\C-?)
 
-
-
-
-
-
-
-
-
-
+;; 別のキーバインドにヘルプを割り当てる
+(define-key global-map (kbd "C-x ?") 'help-command)

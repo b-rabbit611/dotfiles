@@ -87,3 +87,9 @@
              (reftex-mode 1)
              (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
              (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
+
+(defun my-doc-class ()
+  (interactive)
+  (insert-file-contents "~/.emacs.d/tex-files/mydocumentclass.tex"))
+
+
