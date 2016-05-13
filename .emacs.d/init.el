@@ -13,9 +13,12 @@
 (set-terminal-coding-system 'cp932)
 (setq default-file-name-coding-system 'cp932)
 
-;; フォントとして MS ゴシック、14 ポイントを使用
+;; フォントとして
 (add-to-list 'default-frame-alist
-  '(font . "ＭＳ ゴシック-14"))
+;  ' MS ゴシック、14 ポイントを使用
+;  '(font . "ＭＳ ゴシック-14"))
+;  '　ミリカ
+  '(font . "Myrica M-14"))
 
 ;; バックアップファイルを作らない
 (setq backup-inhibited t)
@@ -91,6 +94,7 @@
 ;; (setq auto-save-default nil) ; 初期値はt
 
 (define-key global-map (kbd "C-l") 'anything)
+(define-key global-map (kbd "C-;") 'toggle-truncate-lines)
 
 ;; Python用Flymakeの設定
 (when (require 'flmake-python nil t)
@@ -119,3 +123,20 @@
 
 ;; 別のキーバインドにヘルプを割り当てる
 (define-key global-map (kbd "C-x ?") 'help-command)
+
+(autoload 'dired-filter-mode "dired-filter" nil t)
+
+;; "C-t"でウィンドウを切り替る。初期値はtranspose-chars
+(define-key global-map (kbd "C-t") 'other-window)
+
+;; dired-modeでonにする
+(defun dired-mode-hooks()
+	(dired-filter-mode))
+(add-hook 'dired-mode-hook 'dired-mode-hooks)
+
+;; M-yにAnything-show-kill-ringを割り当てる。
+(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
+
+
+;; "nn" で「ん」を入力
+(setq enable-double-n-syntax t)
