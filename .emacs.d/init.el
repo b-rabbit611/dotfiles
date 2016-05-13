@@ -54,8 +54,8 @@
 
 
 ;; プラットフォームを判定して分岐する
-(if (eq system-type 'windows-nt) (load ~/.emacs.d/site-lisp/windows.el))
-(if (eq system-type 'gnu/linux) (load ~/.emacs.d/site-lisp/linux.el))
+(if (eq system-type 'windows-nt) (load "~/.emacs.d/site-lisp/windows.el"))
+(if (eq system-type 'gnu/linux) (load "~/.emacs.d/site-lisp/linux.el"))
 
 ;; バックアップファイルを作らない
 (setq backup-inhibited t)
