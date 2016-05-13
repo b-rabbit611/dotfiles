@@ -1,39 +1,3 @@
-;;emacsの初期画面(welcome メッセージ)非表示
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
-
-(set-language-environment "Japanese")
-;; ファイル新規作成時の文字コードを CP932 にする
-;;(prefer-coding-system 'cp932)
-;; ファイル新規作成時の文字コードを utf8 にする
-(prefer-coding-system 'utf-8)
-;; ファイル名の文字コードを CP932 にする
-(set-file-name-coding-system 'cp932)
-(set-keyboard-coding-system 'cp932)
-(set-terminal-coding-system 'cp932)
-(setq default-file-name-coding-system 'cp932)
-
-;; フォントとして
-(add-to-list 'default-frame-alist
-;  ' MS ゴシック、14 ポイントを使用
-;  '(font . "ＭＳ ゴシック-14"))
-;  '　ミリカ
-  '(font . "Myrica M-14"))
-
-;; バックアップファイルを作らない
-(setq backup-inhibited t)
-
-;; ベースは Shift-JIS のまま
-(set-language-environment "Japanese")
-;; ファイルのデフォルトを HTML や C++ 用に BOM 付き UTF-8
-(setq default-buffer-file-coding-system 'utf-8-with-signature)
-;; BOM なし UTF-8 でなければならない言語
-(modify-coding-system-alist 'file "\\.java\\'" 'utf-8) ;; Java
-(modify-coding-system-alist 'file "\\.clj\\'" 'utf-8) ;; Clojure
-(modify-coding-system-alist 'file "\\.\\(scala\\|sbt\\)\\'" 'utf-8) ;; Scala
-(modify-coding-system-alist 'file "\\.[eh]rl\\'" 'utf-8) ;; Erlang
-(modify-coding-system-alist 'file "\\.exs?\\'" 'utf-8) ;; Elixir
-
 ;; Use init-loader.el
 ;; ref. https://github.com/emacs-jp/init-loader
 
@@ -77,6 +41,36 @@
 ;;  ;;(setq url-proxy-services '(("http" . "localhost:8339")))
 ;;  ;; install-elispの関数を利用可能とする
 ;;  (auto-install-compatibility-setup))
+
+;;emacsの初期画面(welcome メッセージ)非表示
+(setq inhibit-startup-message t)
+(setq initial-scratch-message nil)
+
+(set-language-environment "Japanese")
+;; ファイル新規作成時の文字コードを CP932 にする
+;;(prefer-coding-system 'cp932)
+;; ファイル新規作成時の文字コードを utf8 にする
+(prefer-coding-system 'utf-8)
+
+
+;; プラットフォームを判定して分岐する
+(if (eq system-type 'windows-nt) (load ~/.emacs.d/site-lisp/windows.el))
+(if (eq system-type 'gnu/linux) (load ~/.emacs.d/site-lisp/linux.el))
+
+;; バックアップファイルを作らない
+(setq backup-inhibited t)
+
+;; ベースは Shift-JIS のまま
+(set-language-environment "Japanese")
+;; ファイルのデフォルトを HTML や C++ 用に BOM 付き UTF-8
+(setq default-buffer-file-coding-system 'utf-8-with-signature)
+;; BOM なし UTF-8 でなければならない言語
+(modify-coding-system-alist 'file "\\.java\\'" 'utf-8) ;; Java
+(modify-coding-system-alist 'file "\\.clj\\'" 'utf-8) ;; Clojure
+(modify-coding-system-alist 'file "\\.\\(scala\\|sbt\\)\\'" 'utf-8) ;; Scala
+(modify-coding-system-alist 'file "\\.[eh]rl\\'" 'utf-8) ;; Erlang
+(modify-coding-system-alist 'file "\\.exs?\\'" 'utf-8) ;; Elixir
+
 
 ;; カラム番号も表示
 (column-number-mode t)
