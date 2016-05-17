@@ -13,7 +13,7 @@
 ;;  )
 ;;  load-path))
 
-;; load-path‚ğ’Ç‰Á‚·‚éŠÖ”‚ğ’è‹`
+;; load-pathã‚’è¿½åŠ ã™ã‚‹é–¢æ•°ã‚’å®šç¾©
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -23,7 +23,7 @@
 		(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 		    (normal-top-level-add-subdirs-to-load-path))))))
 
-;; ˆø”‚ÌƒfƒBƒŒƒNƒgƒŠ‚Æ‚»‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğload-path‚É’Ç‰Á
+;; å¼•æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨ãã®ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’load-pathã«è¿½åŠ 
 (add-to-load-path "lisp" "site-lisp" "elisp")
 
 ;; Define directory of init files.
@@ -31,40 +31,40 @@
 (setq init-loader-show-log-after-init 'error-only)
 (init-loader-load "~/.emacs.d/inits")
 
-;;;; auto-install‚Ìİ’è
+;;;; auto-installã®è¨­å®š
 ;;(when (require 'auto-install nil t)
-;;  ;; ƒCƒ“ƒXƒg[ƒ‹ƒfƒBƒŒƒNƒgƒŠ‚ğİ’è‚·‚é@‰Šú’l‚Í ~/.emacs.d/auto-install/
+;;  ;; ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¨­å®šã™ã‚‹ã€€åˆæœŸå€¤ã¯ ~/.emacs.d/auto-install/
 ;;  (setq auto-install-directory "~/.emacs.d/elisp/")
-;;  ;;EmacsWiki‚É“o˜^‚³‚ê‚Ä‚¢‚éelisp‚Ì–¼‘O‚ğæ“¾‚·‚é
+;;  ;;EmacsWikiã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹elispã®åå‰ã‚’å–å¾—ã™ã‚‹
 ;;  (auto-install-update-emacswiki-package-name t)
-;;  ;;•K—v‚Å‚ ‚ê‚ÎƒvƒƒLƒV‚Ìİ’è‚ğs‚¤
+;;  ;;å¿…è¦ã§ã‚ã‚Œã°ãƒ—ãƒ­ã‚­ã‚·ã®è¨­å®šã‚’è¡Œã†
 ;;  ;;(setq url-proxy-services '(("http" . "localhost:8339")))
-;;  ;; install-elisp‚ÌŠÖ”‚ğ—˜—p‰Â”\‚Æ‚·‚é
+;;  ;; install-elispã®é–¢æ•°ã‚’åˆ©ç”¨å¯èƒ½ã¨ã™ã‚‹
 ;;  (auto-install-compatibility-setup))
 
-;;emacs‚Ì‰Šú‰æ–Ê(welcome ƒƒbƒZ[ƒW)”ñ•\¦
+;;emacsã®åˆæœŸç”»é¢(welcome ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸)éè¡¨ç¤º
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
 (set-language-environment "Japanese")
-;; ƒtƒ@ƒCƒ‹V‹Kì¬‚Ì•¶šƒR[ƒh‚ğ CP932 ‚É‚·‚é
+;; ãƒ•ã‚¡ã‚¤ãƒ«æ–°è¦ä½œæˆæ™‚ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’ CP932 ã«ã™ã‚‹
 ;;(prefer-coding-system 'cp932)
-;; ƒtƒ@ƒCƒ‹V‹Kì¬‚Ì•¶šƒR[ƒh‚ğ utf8 ‚É‚·‚é
+;; ãƒ•ã‚¡ã‚¤ãƒ«æ–°è¦ä½œæˆæ™‚ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’ utf8 ã«ã™ã‚‹
 (prefer-coding-system 'utf-8)
 
 
-;; ƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ğ”»’è‚µ‚Ä•ªŠò‚·‚é
+;; ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã‚’åˆ¤å®šã—ã¦åˆ†å²ã™ã‚‹
 (if (eq system-type 'windows-nt) (load "~/.emacs.d/site-lisp/windows.el"))
 (if (eq system-type 'gnu/linux) (load "~/.emacs.d/site-lisp/linux.el"))
 
-;; ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
+;; ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
 (setq backup-inhibited t)
 
-;; ƒx[ƒX‚Í Shift-JIS ‚Ì‚Ü‚Ü
+;; ãƒ™ãƒ¼ã‚¹ã¯ Shift-JIS ã®ã¾ã¾
 (set-language-environment "Japanese")
-;; ƒtƒ@ƒCƒ‹‚ÌƒfƒtƒHƒ‹ƒg‚ğ HTML ‚â C++ —p‚É BOM •t‚« UTF-8
+;; ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚’ HTML ã‚„ C++ ç”¨ã« BOM ä»˜ã UTF-8
 (setq default-buffer-file-coding-system 'utf-8-with-signature)
-;; BOM ‚È‚µ UTF-8 ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢Œ¾Œê
+;; BOM ãªã— UTF-8 ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„è¨€èª
 (modify-coding-system-alist 'file "\\.java\\'" 'utf-8) ;; Java
 (modify-coding-system-alist 'file "\\.clj\\'" 'utf-8) ;; Clojure
 (modify-coding-system-alist 'file "\\.\\(scala\\|sbt\\)\\'" 'utf-8) ;; Scala
@@ -72,37 +72,37 @@
 (modify-coding-system-alist 'file "\\.exs?\\'" 'utf-8) ;; Elixir
 
 
-;; ƒJƒ‰ƒ€”Ô†‚à•\¦
+;; ã‚«ãƒ©ãƒ ç•ªå·ã‚‚è¡¨ç¤º
 (column-number-mode t)
-;; ƒtƒ@ƒCƒ‹ƒTƒCƒY‚ğ•\¦
+;; ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã‚’è¡¨ç¤º
 (size-indication-mode t)
-;; Œv‚ğ•\¦iD‚İ‚É‰‚¶‚ÄƒtƒH[ƒ}ƒbƒg‚ğ•ÏX‰Â”\j
-;; (setq display-time-day-and-date t) ; —j“úEŒE“ú‚ğ•\¦
-;; (setq display-time-24hr-format t) ; 24•\¦
+;; æ™‚è¨ˆã‚’è¡¨ç¤ºï¼ˆå¥½ã¿ã«å¿œã˜ã¦ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’å¤‰æ›´å¯èƒ½ï¼‰
+;; (setq display-time-day-and-date t) ; æ›œæ—¥ãƒ»æœˆãƒ»æ—¥ã‚’è¡¨ç¤º
+;; (setq display-time-24hr-format t) ; 24æ™‚è¡¨ç¤º
 (display-time-mode t)
-;; s”Ô†‚ğí‚É•\¦‚·‚é
+;; è¡Œç•ªå·ã‚’å¸¸ã«è¡¨ç¤ºã™ã‚‹
 ;; (global-linum-mode t)
-;; ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì¬‚µ‚È‚¢
-;; (setq make-backup-files nil) ; ‰Šú’l‚Ít
-;; ƒI[ƒgƒZ[ƒuƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
-;; (setq auto-save-default nil) ; ‰Šú’l‚Ít
+;; ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ãªã„
+;; (setq make-backup-files nil) ; åˆæœŸå€¤ã¯t
+;; ã‚ªãƒ¼ãƒˆã‚»ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
+;; (setq auto-save-default nil) ; åˆæœŸå€¤ã¯t
 
 (define-key global-map (kbd "C-l") 'anything)
 (define-key global-map (kbd "C-;") 'toggle-truncate-lines)
 
-;; Python—pFlymake‚Ìİ’è
+;; Pythonç”¨Flymakeã®è¨­å®š
 (when (require 'flmake-python nil t)
   (setq flymake-python-syntax-checker "flake8")
-  ;; pep8‚ğ—˜—p‚·‚é
+  ;; pep8ã‚’åˆ©ç”¨ã™ã‚‹
   ;; (setq flymake-python-syntax-checker "pep8")
   )
 
-;; undohist‚Ìİ’è
+;; undohistã®è¨­å®š
 (when (require 'undohist nil t)
   (undohist-initialize)
   )
 
-;; undo-tree‚Ìİ’è
+;; undo-treeã®è¨­å®š
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
 
@@ -111,26 +111,29 @@
 (unless (server-running-p)
   (server-start))
 
-;; “ü—Í‚³‚ê‚éƒL[ƒV[ƒPƒ“ƒX‚ğ’u‚«Š·‚¦‚é
-;; ?\C-h‚ÍDELƒL[‚ÌƒV[ƒPƒ“ƒX
+;; å…¥åŠ›ã•ã‚Œã‚‹ã‚­ãƒ¼ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’ç½®ãæ›ãˆã‚‹
+;; ?\C-hã¯DELã‚­ãƒ¼ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹
 (keyboard-translate ?\C-h ?\C-?)
 
-;; •Ê‚ÌƒL[ƒoƒCƒ“ƒh‚Éƒwƒ‹ƒv‚ğŠ„‚è“–‚Ä‚é
+;; åˆ¥ã®ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã«ãƒ˜ãƒ«ãƒ—ã‚’å‰²ã‚Šå½“ã¦ã‚‹
 (define-key global-map (kbd "C-x ?") 'help-command)
 
 (autoload 'dired-filter-mode "dired-filter" nil t)
 
-;; "C-t"‚ÅƒEƒBƒ“ƒhƒE‚ğØ‚è‘Ö‚éB‰Šú’l‚Ítranspose-chars
+;; "C-t"ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ‡ã‚Šæ›¿ã‚‹ã€‚åˆæœŸå€¤ã¯transpose-chars
 (define-key global-map (kbd "C-t") 'other-window)
 
-;; dired-mode‚Åon‚É‚·‚é
+;; dired-modeã§onã«ã™ã‚‹
 (defun dired-mode-hooks()
 	(dired-filter-mode))
 (add-hook 'dired-mode-hook 'dired-mode-hooks)
 
-;; M-y‚ÉAnything-show-kill-ring‚ğŠ„‚è“–‚Ä‚éB
+;; M-yã«Anything-show-kill-ringã‚’å‰²ã‚Šå½“ã¦ã‚‹ã€‚
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 
 
-;; "nn" ‚Åu‚ñv‚ğ“ü—Í
+;; "nn" ã§ã€Œã‚“ã€ã‚’å…¥åŠ›
 (setq enable-double-n-syntax t)
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
