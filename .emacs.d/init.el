@@ -131,6 +131,15 @@
 ;; M-yにAnything-show-kill-ringを割り当てる。
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 
+;; カーソル位置から行頭まで削除する
+;(defun backward-kill-line (arg)
+;  "Kill chars backward until encountering the end of a line."
+;  (interactive "p")
+;  (kill-line 0))
+;; C-S-kに設定
+;(global-set-key (kbd "C-S-k") 'backward-kill-line)
+
+(define-key global-map (kbd "C-S-k") (kbd "C-u 0 C-k"))
 
 ;; "nn" で「ん」を入力
 (setq enable-double-n-syntax t)
